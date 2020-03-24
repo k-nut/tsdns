@@ -9,7 +9,7 @@ describe("Answers", () => {
 
     it("correctly extracts name from answer", () => {
       // Act
-      const answers = Answers.fromBuffer(buffer);
+      const answers = Answers.fromBuffer(buffer, 0);
 
       // Assert
       expect(answers.name).toBe("www.k-nut.eu");
@@ -17,7 +17,7 @@ describe("Answers", () => {
 
     it("correctly extracts IP for A-Name answer", () => {
       // Act
-      const answers = Answers.fromBuffer(buffer);
+      const answers = Answers.fromBuffer(buffer, 0);
 
       // Assert
       expect(answers.rdata).toBe("185.26.156.24");
@@ -33,7 +33,7 @@ describe("Answers", () => {
       )
 
       // Act
-      const getAnswers = () => Answers.fromBuffer(cnameBuffer);
+      const getAnswers = () => Answers.fromBuffer(cnameBuffer, 0);
 
       // Assert
       expect(getAnswers).toThrowError('Cannot yet parse record type: 5')

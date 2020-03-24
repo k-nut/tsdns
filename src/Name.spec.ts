@@ -8,7 +8,7 @@ describe("Name", () => {
     it("extracts name from buffer", () => {
       // Arrange
       // Act
-      const name = Name.parse(buffer);
+      const name = Name.parse(buffer, 0);
 
       // Assert
       expect(name.value).toEqual("www.k-nut.eu");
@@ -38,7 +38,7 @@ describe("Name", () => {
     it("computes the correct length from a buffer", () => {
       // Arrange
       // Act
-      const name = Name.parse(buffer);
+      const name = Name.parse(buffer, 0);
 
       // Assert
       expect(name.length).toBe(14 * 8);

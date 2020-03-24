@@ -11,13 +11,16 @@ yarn
 
 ## Running 
 ```
-npx ts-node index.ts
+npx ts-node index.ts <record-type> <domain>
+# e.g.
+npx ts-node index.ts A www.k-nut.eu
 ```
 
 ## Tests
 ```
-yarn test    # starts tests in watch mode
-yarn test:ci # runs tests once and reports coverage
+yarn test             # starts unit tests in watch mode
+yarn test:ci          # runs unit tests once and reports coverage
+yarn test:integration # runs integrations tests comparing to `dig`
 ```
 
 ## References

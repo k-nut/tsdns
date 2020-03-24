@@ -5,7 +5,7 @@ export enum TYPE {
   A = 1, // a host address
   NS = 2, // an authoritative name server
   CNAME = 5, // canonical name for an alias
-  SOA = 5, // marks the start of a zone of authority
+  SOA = 6, // marks the start of a zone of authority
   WKS = 11, // a well known service description
   PTR = 12, // a domain name pointer
   HINFO = 13, // host information
