@@ -58,8 +58,9 @@ export class Answers {
     }
   }
 
-  static fromBuffer(buffer: Buffer): Answers {
-    const name = Name.parse(buffer);
+  static fromBuffer(buffer: Buffer, initialOffset: number): Answers {
+    const name = Name.parse(buffer, initialOffset);
+    buffer = buffer.slice(initialOffset);
     const offset = name.length;
     const type = Answers.getType(buffer, offset);
     const klass = Answers.getClass(buffer, offset + 16);

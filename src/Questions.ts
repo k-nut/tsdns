@@ -58,8 +58,9 @@ export class Questions {
     return bitwise.buffer.readUInt(buffer, offset, 16);
   }
 
-  static fromBuffer(buffer: Buffer): Questions {
-    const name = Name.parse(buffer);
+  static fromBuffer(buffer: Buffer, initialOffset: number): Questions {
+    const name = Name.parse(buffer, initialOffset);
+    buffer = buffer.slice(initialOffset);
     const offset = name.length;
     const type = Questions.getType(buffer, offset);
     const qclass = Questions.getClass(buffer, offset + 16);

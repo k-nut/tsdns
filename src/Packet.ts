@@ -16,10 +16,11 @@ class Packet {
   static fromBuffer(buffer: Buffer): Packet {
     const header: Header = Header.fromBuffer(buffer);
     // the header is 12 byte long so cut those off for the questions
-    const questions: Questions = Questions.fromBuffer(buffer.slice(12));
+    const questions: Questions = Questions.fromBuffer(buffer, 12);
     // cut off the header and questions part
     const answers: Answers = Answers.fromBuffer(
-      buffer.slice(12 + questions.length / 8)
+      buffer,
+      12 + questions.length / 8
     );
 
     return new Packet(header, questions, answers);
