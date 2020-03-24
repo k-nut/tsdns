@@ -31,7 +31,7 @@ describe("Packet", () => {
       const packet = Packet.fromBuffer(buffer);
 
       // Assert
-      expect(packet.answers.name).toEqual('www.k-nut.eu');
+      expect(packet.answers!.name).toEqual('www.k-nut.eu');
     });
   });
 });
