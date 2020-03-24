@@ -17,15 +17,10 @@ npx ts-node index.ts A www.k-nut.eu
 ```
 
 ## Tests
-Unit tests:
 ```
-yarn test    # starts tests in watch mode
-yarn test:ci # runs tests once and reports coverage
-```
-
-There are also integration tests which run the same query with `dig` and compare the output:
-```
-./integration-tests.sh
+yarn test             # starts unit tests in watch mode
+yarn test:ci          # runs unit tests once and reports coverage
+yarn test:integration # runs integrations tests comparing to `dig`
 ```
 
 ## References

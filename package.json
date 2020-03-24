@@ -15,10 +15,12 @@
   "name": "tsdns",
   "version": "0.0.1",
   "description": "A DNS resolver written in TypeScript",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "test": "jest --watch",
-    "test:ci": "jest --coverage"
+    "test:ci": "jest --coverage",
+    "test:integration": "./integration-tests.sh",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
