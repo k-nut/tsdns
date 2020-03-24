@@ -40,13 +40,22 @@ export class Answers {
     return bitwise.buffer.readUInt(buffer, offset, 16);
   }
 
-  static getData(buffer: Buffer): string {
+  private static parseARecords(buffer: Buffer): string {
     return [
       bitwise.buffer.readUInt(buffer, 0, 8),
       bitwise.buffer.readUInt(buffer, 8, 8),
       bitwise.buffer.readUInt(buffer, 16, 8),
       bitwise.buffer.readUInt(buffer, 24, 8),
     ].join('.')
+  }
+
+  static getData(buffer: Buffer, type: number): string {
+    switch (type) {
+      case 1: // A-Record
+        return Answers.parseARecords(buffer)
+      default:
+        throw Error(`Cannot yet parse record type: ${type}`)
+    }
   }
 
   static fromBuffer(buffer: Buffer): Answers {
@@ -56,7 +65,7 @@ export class Answers {
     const klass = Answers.getClass(buffer, offset + 16);
     const ttl = bitwise.buffer.readUInt(buffer, offset + 32, 32);
     const rdlength = bitwise.buffer.readUInt(buffer, offset + 64, 16);
-    const rdata = Answers.getData(buffer.slice((offset + 80) / 8));
+    const rdata = Answers.getData(buffer.slice((offset + 80) / 8), type);
     return new Answers({
       klass,
       rdata,
