@@ -1,7 +1,7 @@
+import { program } from "commander";
+
 import Handler from "./Handler";
 import { TYPE } from "./TYPE";
-
-const { program } = require("commander");
 
 const handler = new Handler();
 
