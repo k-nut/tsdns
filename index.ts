@@ -1,25 +1,15 @@
-import Packet from "./Packet";
-import { Questions } from "./Questions";
+import Handler from "./Handler";
 import { TYPE } from "./TYPE";
-import { Header } from "./Header";
 
-const udp = require("dgram");
+const { program } = require("commander");
 
-// creating a client socket
-const client = udp.createSocket("udp4");
+const handler = new Handler();
 
-const header = Header.create(101);
-const questions = Questions.create({ type: TYPE.A, name: "www.k-nut.eu" });
-const packet = new Packet(header, questions);
+program
+  .version("0.0.1")
+  .arguments("<type> <name>")
+  .action((type: keyof typeof TYPE, name: string) => {
+    handler.send(type, name);
+  });
 
-client.on("message", function(msg: Buffer) {
-  const packet = Packet.fromBuffer(msg);
-  console.log(packet.answers!.rdata);
-  client.close();
-});
-
-client.send(packet.toBuffer(), 53, "1.1.1.1", function(error: Error | null) {
-  if (error) {
-    client.close();
-  }
-});
+program.parse(process.argv);

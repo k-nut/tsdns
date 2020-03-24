@@ -8,6 +8,7 @@
   "dependencies": {
     "@types/jest": "^25.1.4",
     "babel-jest": "^25.1.0",
+    "commander": "^5.0.0",
     "jest": "^25.1.0",
     "ts-jest": "^25.2.1"
   },
