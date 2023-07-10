@@ -1,4 +1,6 @@
 import {Answers} from "./Answers";
+import {describe, it} from "node:test";
+import assert from "assert";
 
 describe("Answers", () => {
   describe("fromBuffer", () => {
@@ -12,7 +14,7 @@ describe("Answers", () => {
       const answers = Answers.fromBuffer(buffer, 0);
 
       // Assert
-      expect(answers.name).toBe("www.k-nut.eu");
+      assert.strictEqual(answers.name, "www.k-nut.eu");
      });
 
     it("correctly extracts IP for A-Name answer", () => {
@@ -20,7 +22,7 @@ describe("Answers", () => {
       const answers = Answers.fromBuffer(buffer, 0);
 
       // Assert
-      expect(answers.rdata).toBe("185.26.156.24");
+      assert.strictEqual(answers.rdata, "185.26.156.24");
     });
 
     it("throws if a non A-Record answer is parsed", () => {
@@ -36,7 +38,9 @@ describe("Answers", () => {
       const getAnswers = () => Answers.fromBuffer(cnameBuffer, 0);
 
       // Assert
-      expect(getAnswers).toThrowError('Cannot yet parse record type: 5')
+      assert.throws(getAnswers, {
+            message: 'Cannot yet parse record type: 5',
+      })
     });
   });
 });

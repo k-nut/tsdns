@@ -3,8 +3,7 @@ import { Questions } from "./Questions";
 import { TYPE } from "./TYPE";
 import Packet from "./Packet";
 import { Socket } from "dgram";
-
-const udp = require("dgram");
+import * as udp from "dgram"
 
 class Handler {
   private client: Socket;

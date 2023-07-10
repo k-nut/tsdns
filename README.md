@@ -11,9 +11,9 @@ yarn
 
 ## Running 
 ```
-npx ts-node index.ts <record-type> <domain>
+npx tsx src/index.ts <record-type> <domain>
 # e.g.
-npx ts-node index.ts A www.k-nut.eu
+npx tsx src/index.ts A www.k-nut.eu
 ```
 
 ## Tests
