@@ -1,11 +1,8 @@
 #!/bin/sh
 
-echo "🏗  Building"
-yarn build
-
 echo "↔️  Comparing"
 DIG=$(dig +short A www.k-nut.eu)
-TSDNS=$(node dist/index.js A www.k-nut.eu)
+TSDNS=$(npx tsx src/index.ts A www.k-nut.eu)
 
 
 if [ "$DIG" = "$TSDNS" ]; then
