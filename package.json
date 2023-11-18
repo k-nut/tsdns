@@ -1,25 +1,21 @@
 {
   "devDependencies": {
-    "@types/node": "^13.9.0",
+    "@types/node": "^20.4.1",
     "bitwise": "^2.0.4",
-    "ts-node": "^8.6.2",
-    "typescript": "^3.8.3"
+    "tsx": "^3.12.7",
+    "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@types/jest": "^27.0.0",
-    "@babel/core": "^7.8.0",
-    "babel-jest": "^27.0.0",
-    "commander": "^5.0.0",
-    "jest": "^27.0.0",
-    "ts-jest": "^27.0.0"
+    "commander": "^5.0.0"
   },
+  "type": "module",
   "name": "tsdns",
   "version": "0.0.1",
   "description": "A DNS resolver written in TypeScript",
   "main": "src/index.ts",
   "scripts": {
-    "test": "jest --watch",
-    "test:ci": "jest --coverage",
+    "test": "node --loader tsx --test --watch src/**.spec.ts",
+    "test:ci": "node --loader tsx --test src/**.spec.ts",
     "test:integration": "./integration-tests.sh",
     "build": "tsc"
   },

@@ -1,4 +1,6 @@
 import { Name } from "./Name";
+import {describe, it} from "node:test";
+import assert from "assert";
 
 describe("Name", () => {
   // this is `www.k-nut.eu`
@@ -11,7 +13,7 @@ describe("Name", () => {
       const name = Name.parse(buffer, 0);
 
       // Assert
-      expect(name.value).toEqual("www.k-nut.eu");
+      assert.strictEqual(name.value, "www.k-nut.eu");
     });
   });
 
@@ -24,7 +26,7 @@ describe("Name", () => {
       const buffer = name.toBuffer();
 
       // Assert
-      expect(buffer).toEqual(buffer);
+      assert.strictEqual(buffer, buffer);
     });
   });
 
@@ -41,7 +43,7 @@ describe("Name", () => {
       const name = Name.parse(buffer, 0);
 
       // Assert
-      expect(name.length).toBe(14 * 8);
+      assert.strictEqual(name.length, 14 * 8);
     });
 
     it("calculates length from value", () => {
@@ -52,7 +54,7 @@ describe("Name", () => {
       const length = name.length;
 
       // Assert
-      expect(length).toEqual(14 * 8);
+      assert.strictEqual(length, 14 * 8);
     });
   });
 });

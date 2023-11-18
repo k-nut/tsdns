@@ -1,4 +1,6 @@
 import { Header } from "./Header";
+import {describe, it} from "node:test";
+import assert from "assert";
 
 describe("header", () => {
   describe("fromBuffer", () => {
@@ -13,7 +15,7 @@ describe("header", () => {
       const header = Header.fromBuffer(buffer);
 
       // Assert
-      expect(header.id).toBe(128);
+      assert.strictEqual(header.id, 128);
     });
   });
 });

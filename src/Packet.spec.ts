@@ -1,5 +1,7 @@
 import { Header } from "./Header";
 import Packet from "./Packet";
+import {describe, it} from "node:test";
+import assert from "assert";
 
 describe("Packet", () => {
   describe("fromBuffer", () => {
@@ -13,7 +15,7 @@ describe("Packet", () => {
       const packet = Packet.fromBuffer(buffer);
 
       // Assert
-      expect(packet.header.id).toBe(128);
+      assert.strictEqual(packet.header.id, 128);
     });
 
     it("deserializes questions QNAME part from buffer", () => {
@@ -22,7 +24,7 @@ describe("Packet", () => {
       const packet = Packet.fromBuffer(buffer);
 
       // Assert
-      expect(packet.questions.name.value).toEqual("www.k-nut.eu");
+      assert.strictEqual(packet.questions.name.value, "www.k-nut.eu");
     });
 
     it("deserializes answer NAME part from buffer", () => {
@@ -31,7 +33,7 @@ describe("Packet", () => {
       const packet = Packet.fromBuffer(buffer);
 
       // Assert
-      expect(packet.answers!.name).toEqual("www.k-nut.eu");
+      assert.strictEqual(packet.answers!.name, "www.k-nut.eu");
     });
 
     it("handles compressed payloads", () => {
@@ -45,8 +47,8 @@ describe("Packet", () => {
       const packet = Packet.fromBuffer(compressedBuffer);
 
       // Assert
-      expect(packet.questions.name.value).toEqual("www.k-nut.eu");
-      expect(packet.answers!.name).toEqual("www.k-nut.eu");
+      assert.strictEqual(packet.questions.name.value, "www.k-nut.eu");
+      assert.strictEqual(packet.answers!.name, "www.k-nut.eu");
     });
   });
 });

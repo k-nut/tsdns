@@ -4,7 +4,8 @@
     "target": "es2017",
     "sourceMap": true,
     "strict": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "esModuleInterop": true
   },
   "include": [
     "src/**/*.ts"
