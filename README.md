@@ -6,7 +6,7 @@ A DNS resolver written in TypeScript for educational purposes.
 
 ## Installation
 ```
-yarn
+npm install
 ```
 
 ## Running 
@@ -18,9 +18,9 @@ npx tsx src/index.ts A www.k-nut.eu
 
 ## Tests
 ```
-yarn test             # starts unit tests in watch mode
-yarn test:ci          # runs unit tests once and reports coverage
-yarn test:integration # runs integrations tests comparing to `dig`
+npm run test             # starts unit tests in watch mode
+npm run test:ci          # runs unit tests once and reports coverage
+npm run test:integration # runs integrations tests comparing to `dig`
 ```
 
 ## References
