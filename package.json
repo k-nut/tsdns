@@ -15,7 +15,7 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "node --import tsx --test --watch src/**.spec.ts",
-    "test:ci": "node --import tsx --test src/**.spec.ts",
+    "test:ci": "node --experimental-test-coverage --import tsx --test src/**.spec.ts",
     "test:integration": "./integration-tests.sh",
     "build": "tsc"
   },
