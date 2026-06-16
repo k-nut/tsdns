@@ -2,7 +2,7 @@
   "devDependencies": {
     "@types/node": "^22.13.1",
     "bitwise": "^2.0.4",
-    "tsx": "^4.19.2",
+    "tsx": "^4.22.4",
     "typescript": "^5.7.3"
   },
   "dependencies": {
